@@ -7,19 +7,19 @@ TOPDIR = /tmp/jnetpcap-rpm
 PWD = $(shell pwd)
 
 rpm: $(SOURCE)
-        @rpmbuild -v -bb \
+	@rpmbuild -v -bb \
 			--define "_sourcedir $(PWD)" \
 			--define "_rpmdir $(PWD)" \
-                        --define "_topdir $(TOPDIR)" \
-                        --define "version $(VERSION)" \
-                        --define "build_number $(BUILD_NUMBER)" \
-                        jnetpcap.spec
+			--define "_topdir $(TOPDIR)" \
+			--define "version $(VERSION)" \
+			--define "build_number $(BUILD_NUMBER)" \
+			jnetpcap.spec
 
 $(SOURCE):
-        @spectool \
-                        --define "version $(VERSION)" \
-                        -g jnetpcap.spec
+	@spectool \
+			--define "version $(VERSION)" \
+			-g jnetpcap.spec
 
 clean:
-        @rm -rf $(TOPDIR) x86_64
-        @rm -f $(SOURCE)
+	@rm -rf $(TOPDIR) x86_64
+	@rm -f $(SOURCE)

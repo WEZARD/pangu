@@ -5,6 +5,12 @@
 - name: install libpcap
   yum: name=libpcap state=present
 
+- name: copy jnetpcap-rpm
+  copy: src=x86_64/jnetpcap-1.3.0-1.x86_64.rpm dest=/opt
+
+- name: install jnetpcap
+  yum: name=/opt/jnetpcap-1.3.0-1.x86_64.rpm state=present
+  
 - name: install the EPEL repository
   yum: name=epel-release state=present
 

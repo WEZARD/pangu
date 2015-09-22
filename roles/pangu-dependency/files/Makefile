@@ -8,8 +8,8 @@ PWD = $(shell pwd)
 
 rpm: $(SOURCE)
         @rpmbuild -v -bb \
-  --define "_sourcedir $(PWD)" \
-                        --define "_rpmdir $(PWD)" \
+			--define "_sourcedir $(PWD)" \
+			--define "_rpmdir $(PWD)" \
                         --define "_topdir $(TOPDIR)" \
                         --define "version $(VERSION)" \
                         --define "build_number $(BUILD_NUMBER)" \
